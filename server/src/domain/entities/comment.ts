@@ -2,7 +2,6 @@ import { randomUUID } from "node:crypto";
 
 type CreateCommentParams = {
   id?: string;
-  title: string;
   content: string;
   feedbackId: string;
   userId: string;
@@ -12,7 +11,6 @@ type CreateCommentParams = {
 
 export class Comment {
   id: string;
-  title: string;
   content: string;
   feedbackId: string;
   userId: string;
@@ -21,7 +19,6 @@ export class Comment {
 
   constructor({
     id,
-    title,
     content,
     feedbackId,
     userId,
@@ -29,7 +26,6 @@ export class Comment {
     createdAt,
   }: CreateCommentParams) {
     this.id = id ?? randomUUID();
-    this.title = title;
     this.content = content;
     this.feedbackId = feedbackId;
     this.userId = userId;

@@ -14,7 +14,6 @@ type AddCommentToFeedbackUsecaseParams = {
   feedbackId: string;
   content: string;
   creatorId: string;
-  title?: string;
 };
 
 export class AddCommentToFeedbackUsecase {
@@ -39,7 +38,6 @@ export class AddCommentToFeedbackUsecase {
       }
 
       const comment = new Comment({
-        title: params.title || "Comment",
         content: params.content,
         feedbackId: params.feedbackId,
         userId: params.creatorId,

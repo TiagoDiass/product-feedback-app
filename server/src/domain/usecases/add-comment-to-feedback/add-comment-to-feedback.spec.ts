@@ -47,7 +47,6 @@ describe("Usecase: AddCommentToFeedback", () => {
 
     expect(result).toEqual(comment);
     expect(comment).toMatchObject({
-      title: "Comment",
       content: "Comment Content",
       feedbackId: feedback.id,
       userId: user.id,
