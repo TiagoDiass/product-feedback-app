@@ -8,7 +8,7 @@
 
 ### Usecases:
 
-- [ ] create-user
+- [x] create-user
 - [ ] create-feedback
 - [ ] add-comment-to-feedback
 - [ ] reply-comment
