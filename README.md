@@ -2,8 +2,9 @@
 
 ### Todo:
 
-- [ ] Create comment entity
+- [x] Create comment entity
 - [ ] Create usecases
+- [ ] Setup Biome
 
 ### Usecases:
 

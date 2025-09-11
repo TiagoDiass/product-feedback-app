@@ -1,21 +1,30 @@
 import { randomUUID } from "node:crypto";
 
+export type CreateUserParams = {
+  name: string;
+  username: string;
+  password: string;
+  pictureUrl: string | null;
+  createdAt?: string;
+  id?: string;
+};
+
 export class User {
   id: string;
   name: string;
   username: string;
   password: string;
-  pictureUrl: string;
+  pictureUrl: string | null = null;
   createdAt: string;
 
-  constructor(
-    name: string,
-    username: string,
-    password: string,
-    pictureUrl: string,
-    createdAt?: string,
-    id?: string
-  ) {
+  constructor({
+    name,
+    username,
+    password,
+    pictureUrl,
+    createdAt,
+    id,
+  }: CreateUserParams) {
     this.id = id ?? randomUUID();
     this.name = name;
     this.username = username;
