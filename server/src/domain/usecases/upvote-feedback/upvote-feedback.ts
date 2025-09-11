@@ -27,14 +27,14 @@ export class UpvoteFeedbackUsecase {
     try {
       const user = await this.userRepository.findById(params.userId);
       if (!user) {
-        throw new UserNotFoundException("User not found");
+        throw new UserNotFoundException();
       }
 
       const feedback = await this.feedbackRepository.findById(
         params.feedbackId
       );
       if (!feedback) {
-        throw new FeedbackNotFoundException("Feedback not found");
+        throw new FeedbackNotFoundException();
       }
 
       const existingUpvote = await this.upvoteRepository.findByFeedbackAndUser(
@@ -42,9 +42,7 @@ export class UpvoteFeedbackUsecase {
         params.userId
       );
       if (existingUpvote) {
-        throw new UpvoteAlreadyExistsException(
-          "User has already upvoted this feedback"
-        );
+        throw new UpvoteAlreadyExistsException();
       }
 
       const upvote = new Upvote({

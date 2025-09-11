@@ -27,14 +27,14 @@ export class AddCommentToFeedbackUsecase {
     try {
       const user = await this.userRepository.findById(params.creatorId);
       if (!user) {
-        throw new UserNotFoundException("User not found");
+        throw new UserNotFoundException();
       }
 
       const feedback = await this.feedbackRepository.findById(
         params.feedbackId
       );
       if (!feedback) {
-        throw new FeedbackNotFoundException("Feedback not found");
+        throw new FeedbackNotFoundException();
       }
 
       const comment = new Comment({

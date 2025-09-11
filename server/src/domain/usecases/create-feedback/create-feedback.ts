@@ -22,7 +22,7 @@ export class CreateFeedbackUsecase {
     try {
       const user = await this.userRepository.findById(params.creatorId);
       if (!user) {
-        throw new UserNotFoundException("User not found");
+        throw new UserNotFoundException();
       }
 
       const feedback = new Feedback({
