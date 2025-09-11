@@ -10,7 +10,7 @@ describe("Usecase: CreateUser", () => {
   it("creates a user", async () => {
     const userRepository = new InMemoryUserRepository();
     const createUser = new CreateUserUsecase(userRepository);
-    await createUser.execute({
+    const result = await createUser.execute({
       name: "John Doe",
       username: "john.doe",
       password: "password",
@@ -18,6 +18,8 @@ describe("Usecase: CreateUser", () => {
     });
 
     const user = await userRepository.findByUsername("john.doe");
+
+    expect(result).toEqual(user);
 
     expect(user).toMatchObject({
       name: "John Doe",

@@ -15,7 +15,7 @@ export type CreateUserUsecaseParams = {
 export class CreateUserUsecase {
   constructor(private readonly userRepository: UserRepository) {}
 
-  async execute(params: CreateUserUsecaseParams): Promise<void> {
+  async execute(params: CreateUserUsecaseParams): Promise<User> {
     try {
       const existingUser = await this.userRepository.findByUsername(
         params.username
@@ -33,6 +33,8 @@ export class CreateUserUsecase {
       });
 
       await this.userRepository.create(user);
+
+      return user;
     } catch (error) {
       if (error instanceof UserAlreadyExistsException) {
         throw error;
