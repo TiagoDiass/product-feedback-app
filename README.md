@@ -9,7 +9,7 @@
 ### Usecases:
 
 - [x] create-user
-- [ ] create-feedback
+- [x] create-feedback
 - [ ] add-comment-to-feedback
 - [ ] reply-comment
 - [ ] upvote-feedback
