@@ -10,7 +10,7 @@
 
 - [x] create-user
 - [x] create-feedback
-- [ ] add-comment-to-feedback
+- [x] add-comment-to-feedback
 - [ ] reply-comment
 - [ ] upvote-feedback
 - [ ] update-feedback-status
