@@ -11,7 +11,7 @@
 - [x] create-user
 - [x] create-feedback
 - [x] add-comment-to-feedback
-- [ ] reply-comment
+- [x] reply-comment
 - [ ] upvote-feedback
 - [ ] update-feedback-status
 - [ ] get-suggestions (can filter by category)
