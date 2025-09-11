@@ -42,7 +42,7 @@ describe("Usecase: CreateFeedback", () => {
       category: "feature",
       description: "It would be great to have a dark mode option",
       creatorId: user.id,
-      upvotes: 0,
+      upvotesCount: 0,
       status: "suggestion",
     });
     expect(feedback?.id).toBeDefined();

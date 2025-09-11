@@ -7,7 +7,7 @@ describe("Entity: Feedback", () => {
       category: "feature",
       description: "Feedback Description",
       creatorId: "creator-id",
-      upvotes: 10,
+      upvotesCount: 10,
       status: "in-progress",
       id: "fake-uuid",
       createdAt: "2021-01-01T00:00:00.000Z",
@@ -19,7 +19,7 @@ describe("Entity: Feedback", () => {
       category: "feature",
       description: "Feedback Description",
       status: "in-progress",
-      upvotes: 10,
+      upvotesCount: 10,
       creatorId: "creator-id",
       createdAt: "2021-01-01T00:00:00.000Z",
     });
@@ -39,7 +39,7 @@ describe("Entity: Feedback", () => {
       category: "feature",
       description: "Feedback Description",
       status: "suggestion",
-      upvotes: 0,
+      upvotesCount: 0,
       creatorId: "creator-id",
       createdAt: expect.any(String),
     });

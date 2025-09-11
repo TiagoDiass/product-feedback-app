@@ -8,7 +8,7 @@ export type CreateFeedbackParams = {
   category: FeedbackCategory;
   description: string;
   creatorId: string;
-  upvotes?: number;
+  upvotesCount?: number;
   status?: FeedbackStatus;
   id?: string;
   createdAt?: string;
@@ -20,7 +20,7 @@ export class Feedback {
   category: FeedbackCategory;
   description: string;
   status: FeedbackStatus;
-  upvotes: number;
+  upvotesCount: number;
   creatorId: string;
   createdAt: string;
 
@@ -29,7 +29,7 @@ export class Feedback {
     category,
     description,
     creatorId,
-    upvotes,
+    upvotesCount,
     status,
     id,
     createdAt,
@@ -39,7 +39,7 @@ export class Feedback {
     this.category = category;
     this.description = description;
     this.creatorId = creatorId;
-    this.upvotes = upvotes ?? 0;
+    this.upvotesCount = upvotesCount ?? 0;
     this.status = status ?? "suggestion";
     this.createdAt = createdAt ?? new Date().toISOString();
   }
