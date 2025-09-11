@@ -12,7 +12,7 @@ export type CreateUserUsecaseParams = {
   pictureUrl: string | null;
 };
 
-export class CreateUser {
+export class CreateUserUsecase {
   constructor(private readonly userRepository: UserRepository) {}
 
   async execute(params: CreateUserUsecaseParams): Promise<void> {

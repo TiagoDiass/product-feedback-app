@@ -1,5 +1,5 @@
 import { InMemoryUserRepository } from "@/domain/repositories/impl/in-memory-user-repository";
-import { CreateUser } from "./create-user";
+import { CreateUserUsecase } from "./create-user";
 import {
   InternalServerError,
   UserAlreadyExistsException,
@@ -9,7 +9,7 @@ import { User } from "@/domain/entities/user";
 describe("Usecase: CreateUser", () => {
   it("creates a user", async () => {
     const userRepository = new InMemoryUserRepository();
-    const createUser = new CreateUser(userRepository);
+    const createUser = new CreateUserUsecase(userRepository);
     await createUser.execute({
       name: "John Doe",
       username: "john.doe",
@@ -31,7 +31,7 @@ describe("Usecase: CreateUser", () => {
 
   it("throws an error if the user already exists", async () => {
     const userRepository = new InMemoryUserRepository();
-    const createUser = new CreateUser(userRepository);
+    const createUser = new CreateUserUsecase(userRepository);
 
     const user = new User({
       name: "John Doe",
@@ -58,7 +58,7 @@ describe("Usecase: CreateUser", () => {
 
   it("throws an error if repository fails", async () => {
     const userRepository = new InMemoryUserRepository();
-    const createUser = new CreateUser(userRepository);
+    const createUser = new CreateUserUsecase(userRepository);
 
     vi.spyOn(userRepository, "create").mockRejectedValue(new Error());
 
