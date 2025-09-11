@@ -3,6 +3,17 @@ import { randomUUID } from "node:crypto";
 export type FeedbackCategory = "feature" | "ui" | "ux" | "enhancement" | "bug";
 export type FeedbackStatus = "suggestion" | "planned" | "in-progress" | "live";
 
+export type CreateFeedbackParams = {
+  title: string;
+  category: FeedbackCategory;
+  description: string;
+  creatorId: string;
+  upvotes?: number;
+  status?: FeedbackStatus;
+  id?: string;
+  createdAt?: string;
+};
+
 export class Feedback {
   id: string;
   title: string;
@@ -13,16 +24,16 @@ export class Feedback {
   creatorId: string;
   createdAt: string;
 
-  constructor(
-    title: string,
-    category: FeedbackCategory,
-    description: string,
-    creatorId: string,
-    upvotes?: number,
-    status?: FeedbackStatus,
-    id?: string,
-    createdAt?: string
-  ) {
+  constructor({
+    title,
+    category,
+    description,
+    creatorId,
+    upvotes,
+    status,
+    id,
+    createdAt,
+  }: CreateFeedbackParams) {
     this.id = id ?? randomUUID();
     this.title = title;
     this.category = category;

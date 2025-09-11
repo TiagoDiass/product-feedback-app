@@ -9,5 +9,14 @@ export default defineConfig({
   },
   test: {
     globals: true,
+    coverage: {
+      provider: "v8",
+      exclude: [
+        "node_modules",
+        "dist",
+        "./vite.config.ts",
+        "src/domain/repositories/index.ts",
+      ],
+    },
   },
 });
