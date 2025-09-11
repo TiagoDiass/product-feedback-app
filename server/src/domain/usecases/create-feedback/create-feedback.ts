@@ -1,4 +1,4 @@
-import { Feedback, FeedbackCategory } from "@/domain/entities/feedback";
+import { Feedback, FeedbackCategory } from "@/domain/entities";
 import { FeedbackRepository, UserRepository } from "@/domain/repositories";
 import {
   UserNotFoundException,

@@ -1,5 +1,5 @@
 import { UserRepository } from "../user-repository";
-import { User } from "../../entities/user";
+import { User } from "@/domain/entities";
 
 export class InMemoryUserRepository implements UserRepository {
   private users: Map<string, User> = new Map();

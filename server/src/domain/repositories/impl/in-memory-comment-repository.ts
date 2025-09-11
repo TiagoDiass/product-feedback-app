@@ -1,5 +1,5 @@
 import { CommentRepository } from "../comment-repository";
-import { Comment } from "@/domain/entities/comment";
+import { Comment } from "@/domain/entities";
 
 export class InMemoryCommentRepository implements CommentRepository {
   private comments: Map<string, Comment> = new Map();

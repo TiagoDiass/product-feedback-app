@@ -1,4 +1,4 @@
-import { Feedback } from "../entities/feedback";
+import { Feedback } from "@/domain/entities";
 
 export interface FeedbackRepository {
   create(feedback: Feedback): Promise<void>;

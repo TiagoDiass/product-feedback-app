@@ -1,12 +1,13 @@
-import { InMemoryFeedbackRepository } from "@/domain/repositories/impl/in-memory-feedback-repository";
-import { InMemoryUserRepository } from "@/domain/repositories/impl/in-memory-user-repository";
+import {
+  InMemoryFeedbackRepository,
+  InMemoryUserRepository,
+} from "@/domain/repositories/impl";
 import { CreateFeedbackUsecase } from "./create-feedback";
 import {
   InternalServerError,
   UserNotFoundException,
 } from "@/domain/exceptions";
-import { User } from "@/domain/entities/user";
-import { Feedback } from "@/domain/entities/feedback";
+import { User } from "@/domain/entities";
 
 describe("Usecase: CreateFeedback", () => {
   it("creates a feedback", async () => {
@@ -17,7 +18,6 @@ describe("Usecase: CreateFeedback", () => {
       userRepository
     );
 
-    // Create a user first
     const user = new User({
       name: "John Doe",
       username: "john.doe",
@@ -66,8 +66,8 @@ describe("Usecase: CreateFeedback", () => {
       });
     } catch (error) {
       expect(error).toBeInstanceOf(UserNotFoundException);
-      expect(error.message).toBe("User not found");
-      expect(error.statusCode).toBe(404);
+      expect((error as UserNotFoundException).message).toBe("User not found");
+      expect((error as UserNotFoundException).statusCode).toBe(404);
     }
   });
 
@@ -79,7 +79,6 @@ describe("Usecase: CreateFeedback", () => {
       userRepository
     );
 
-    // Create a user first
     const user = new User({
       name: "John Doe",
       username: "john.doe",
@@ -99,8 +98,10 @@ describe("Usecase: CreateFeedback", () => {
       });
     } catch (error) {
       expect(error).toBeInstanceOf(InternalServerError);
-      expect(error.message).toBe("Failed to create feedback");
-      expect(error.statusCode).toBe(500);
+      expect((error as InternalServerError).message).toBe(
+        "Failed to create feedback"
+      );
+      expect((error as InternalServerError).statusCode).toBe(500);
     }
   });
 });

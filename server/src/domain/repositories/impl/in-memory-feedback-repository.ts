@@ -1,5 +1,5 @@
 import { FeedbackRepository } from "../feedback-repository";
-import { Feedback } from "@/domain/entities/feedback";
+import { Feedback } from "@/domain/entities";
 
 export class InMemoryFeedbackRepository implements FeedbackRepository {
   private feedbacks: Map<string, Feedback> = new Map();

@@ -1,10 +1,10 @@
-import { InMemoryUserRepository } from "@/domain/repositories/impl/in-memory-user-repository";
+import { InMemoryUserRepository } from "@/domain/repositories/impl";
 import { CreateUserUsecase } from "./create-user";
 import {
   InternalServerError,
   UserAlreadyExistsException,
 } from "@/domain/exceptions";
-import { User } from "@/domain/entities/user";
+import { User } from "@/domain/entities";
 
 describe("Usecase: CreateUser", () => {
   it("creates a user", async () => {
@@ -27,8 +27,8 @@ describe("Usecase: CreateUser", () => {
       password: "password",
       pictureUrl: "https://example.com/picture.jpg",
     });
-    expect(user.id).toBeDefined();
-    expect(user.createdAt).toBeDefined();
+    expect(user!.id).toBeDefined();
+    expect(user!.createdAt).toBeDefined();
   });
 
   it("throws an error if the user already exists", async () => {
@@ -53,8 +53,10 @@ describe("Usecase: CreateUser", () => {
       });
     } catch (error) {
       expect(error).toBeInstanceOf(UserAlreadyExistsException);
-      expect(error.message).toBe("User already exists");
-      expect(error.statusCode).toBe(400);
+      expect((error as UserAlreadyExistsException).message).toBe(
+        "User already exists"
+      );
+      expect((error as UserAlreadyExistsException).statusCode).toBe(400);
     }
   });
 
@@ -73,8 +75,10 @@ describe("Usecase: CreateUser", () => {
       });
     } catch (error) {
       expect(error).toBeInstanceOf(InternalServerError);
-      expect(error.message).toBe("Failed to create user");
-      expect(error.statusCode).toBe(500);
+      expect((error as InternalServerError).message).toBe(
+        "Failed to create user"
+      );
+      expect((error as InternalServerError).statusCode).toBe(500);
     }
   });
 });

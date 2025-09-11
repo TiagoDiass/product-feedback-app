@@ -1,14 +1,15 @@
-import { InMemoryFeedbackRepository } from "@/domain/repositories/impl/in-memory-feedback-repository";
-import { InMemoryUserRepository } from "@/domain/repositories/impl/in-memory-user-repository";
-import { InMemoryCommentRepository } from "@/domain/repositories/impl/in-memory-comment-repository";
+import {
+  InMemoryCommentRepository,
+  InMemoryFeedbackRepository,
+  InMemoryUserRepository,
+} from "@/domain/repositories/impl";
 import { AddCommentToFeedbackUsecase } from "./add-comment-to-feedback";
 import {
   InternalServerError,
   UserNotFoundException,
   FeedbackNotFoundException,
 } from "@/domain/exceptions";
-import { User } from "@/domain/entities/user";
-import { Feedback } from "@/domain/entities/feedback";
+import { User, Feedback } from "@/domain/entities";
 
 describe("Usecase: AddCommentToFeedback", () => {
   it("adds a comment to a feedback", async () => {

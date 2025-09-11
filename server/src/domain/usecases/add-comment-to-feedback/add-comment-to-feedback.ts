@@ -1,4 +1,4 @@
-import { Comment } from "@/domain/entities/comment";
+import { Comment } from "@/domain/entities";
 import {
   CommentRepository,
   FeedbackRepository,
