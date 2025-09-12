@@ -1,4 +1,4 @@
-import { Feedback, FeedbackStatus } from "@/domain/entities";
+import { Feedback, FeedbackStatus, FeedbackCategory } from "@/domain/entities";
 
 export interface FeedbackRepository {
   create(feedback: Feedback): Promise<void>;
@@ -6,4 +6,8 @@ export interface FeedbackRepository {
   incrementUpvotesCount(feedbackId: string): Promise<void>;
   decrementUpvotesCount(feedbackId: string): Promise<void>;
   updateStatus(feedbackId: string, status: FeedbackStatus): Promise<void>;
+  findByStatusAndCategory(
+    status: FeedbackStatus,
+    category?: FeedbackCategory
+  ): Promise<Feedback[]>;
 }

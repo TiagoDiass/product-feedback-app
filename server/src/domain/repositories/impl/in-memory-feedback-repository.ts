@@ -1,5 +1,5 @@
 import { FeedbackRepository } from "../feedback-repository";
-import { Feedback, FeedbackStatus } from "@/domain/entities";
+import { Feedback, FeedbackStatus, FeedbackCategory } from "@/domain/entities";
 
 export class InMemoryFeedbackRepository implements FeedbackRepository {
   private feedbacks: Map<string, Feedback> = new Map();
@@ -37,5 +37,18 @@ export class InMemoryFeedbackRepository implements FeedbackRepository {
       feedback.status = status;
       this.feedbacks.set(feedbackId, feedback);
     }
+  }
+
+  async findByStatusAndCategory(
+    status: FeedbackStatus,
+    category?: FeedbackCategory
+  ): Promise<Feedback[]> {
+    const allFeedbacks = Array.from(this.feedbacks.values());
+
+    return allFeedbacks.filter((feedback) => {
+      const matchesStatus = feedback.status === status;
+      const matchesCategory = category ? feedback.category === category : true;
+      return matchesStatus && matchesCategory;
+    });
   }
 }
