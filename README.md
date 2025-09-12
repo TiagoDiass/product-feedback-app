@@ -14,6 +14,6 @@
 - [x] reply-comment
 - [x] upvote-feedback
 - [x] remove-upvote-from-feedback
-- [ ] update-feedback-status
+- [x] update-feedback-status
 - [ ] get-suggestions (can filter by category)
 - [ ] get-roadmap (returns in separate parts planned, in-progress and live feedbacks)
