@@ -64,25 +64,10 @@ describe("Usecase: RemoveUpvoteFromFeedback", () => {
       feedbackRepository
     );
 
-    const user = new User({
-      name: "John Doe",
-      username: "john.doe",
-      password: "password",
-      pictureUrl: "https://example.com/picture.jpg",
-    });
-
-    const feedback = new Feedback({
-      title: "Feedback Title",
-      category: "feature",
-      description: "Feedback Description",
-      creatorId: user.id,
-    });
-    await feedbackRepository.create(feedback);
-
     try {
       await removeUpvoteFromFeedback.execute({
-        feedbackId: feedback.id,
-        userId: user.id,
+        feedbackId: "fake-feedback-id",
+        userId: "fake-user-id",
       });
     } catch (error) {
       expect(error).toBeInstanceOf(UpvoteNotFoundException);
@@ -101,25 +86,17 @@ describe("Usecase: RemoveUpvoteFromFeedback", () => {
       feedbackRepository
     );
 
-    const user = new User({
-      name: "John Doe",
-      username: "john.doe",
-      password: "password",
-      pictureUrl: "https://example.com/picture.jpg",
-    });
-
     const feedback = new Feedback({
       title: "Feedback Title",
       category: "feature",
       description: "Feedback Description",
-      creatorId: user.id,
+      creatorId: "fake-user-id",
     });
     await feedbackRepository.create(feedback);
 
-    // Create an existing upvote
     const existingUpvote = new Upvote({
       feedbackId: feedback.id,
-      userId: user.id,
+      userId: "fake-user-id",
     });
     await upvoteRepository.create(existingUpvote);
 
@@ -128,7 +105,7 @@ describe("Usecase: RemoveUpvoteFromFeedback", () => {
     try {
       await removeUpvoteFromFeedback.execute({
         feedbackId: feedback.id,
-        userId: user.id,
+        userId: "fake-user-id",
       });
     } catch (error) {
       expect(error).toBeInstanceOf(InternalServerError);
