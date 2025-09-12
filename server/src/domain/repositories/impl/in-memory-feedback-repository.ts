@@ -1,5 +1,5 @@
 import { FeedbackRepository } from "../feedback-repository";
-import { Feedback } from "@/domain/entities";
+import { Feedback, FeedbackStatus } from "@/domain/entities";
 
 export class InMemoryFeedbackRepository implements FeedbackRepository {
   private feedbacks: Map<string, Feedback> = new Map();
@@ -24,6 +24,17 @@ export class InMemoryFeedbackRepository implements FeedbackRepository {
     const feedback = this.feedbacks.get(feedbackId);
     if (feedback) {
       feedback.upvotesCount = Math.max(0, feedback.upvotesCount - 1);
+      this.feedbacks.set(feedbackId, feedback);
+    }
+  }
+
+  async updateStatus(
+    feedbackId: string,
+    status: FeedbackStatus
+  ): Promise<void> {
+    const feedback = this.feedbacks.get(feedbackId);
+    if (feedback) {
+      feedback.status = status;
       this.feedbacks.set(feedbackId, feedback);
     }
   }
