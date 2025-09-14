@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "product-feedback-app-node",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

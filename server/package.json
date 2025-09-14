@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "main": "dist/app.js",
   "scripts": {
     "start": "tsc && node dist/app.js",
@@ -12,9 +11,13 @@
   "devDependencies": {
     "@types/node": "^24.3.1",
     "@vitest/coverage-v8": "3.2.4",
+    "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "fastify": "^5.6.0"
   }
 }
