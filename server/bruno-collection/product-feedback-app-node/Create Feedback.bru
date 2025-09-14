@@ -1,0 +1,20 @@
+meta {
+  name: Create Feedback
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:3333/feedbacks
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "Feedback 1",
+    "content": "Conteúdo mais lindo desse brasil",
+    "category": "feature",
+    "creatorId": "5582ca48-ec82-4f8b-bdb9-c782f616ee8e"
+  }
+}
