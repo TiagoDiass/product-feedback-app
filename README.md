@@ -16,4 +16,4 @@
 - [x] remove-upvote-from-feedback
 - [x] update-feedback-status
 - [x] get-suggestions (can filter by category) (todo: needs to add sort by)
-- [ ] get-roadmap (returns in separate parts planned, in-progress and live feedbacks)
+- [x] get-roadmap (returns in separate parts planned, in-progress and live feedbacks)
